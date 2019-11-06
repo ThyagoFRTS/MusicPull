@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from musicas.views import listagem,cad_album, ualbum, dalbum
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('Ca/', cad_album),
+    path('Ra/', listagem, name="listagem"),
+    path('Ua/<int:pk>',ualbum, name="updA"),
+    path('Da/<int:pk>',dalbum,name="delA"),
+    
 ]
