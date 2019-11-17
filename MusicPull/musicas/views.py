@@ -8,12 +8,14 @@ def listagem(request):
 	data['albuns']= Albuns.objects.all()
 	return render(request, 'musicas/listagem.html',data)
 
+def home(request):
+	return render(request,'musicas/home.html')
+
 def cad_album(request):
 	form = FormAlbum(request.POST or None)#Verifica se tem coisa
-	print('a')
 	if form.is_valid():
 		form.save()
-		return redirect('/albuns')
+		return redirect('/')
 	return render(request,'musicas/formCa.html',{'form':form})
 
 def ualbum(request, pk):

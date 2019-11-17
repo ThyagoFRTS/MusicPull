@@ -3,11 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Albuns (models.Model):
-	titulo = models.CharField(max_length=40)
-	duracao = models.DurationField()
-	ano = models.IntegerField()
-	num_musicas = models.IntegerField()
-	preco = models.DecimalField(max_digits=7,decimal_places=2)
+	titulo = models.CharField(max_length=40,verbose_name='Título')
+	duracao = models.DurationField(verbose_name='Duração')
+	ano = models.IntegerField(verbose_name='Ano')
+	num_musicas = models.IntegerField(verbose_name='Número de Músicas')
+	preco = models.DecimalField(max_digits=7,decimal_places=2,verbose_name='Preço')
 	
 
 	class Meta:
