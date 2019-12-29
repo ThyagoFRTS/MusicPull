@@ -6,7 +6,8 @@ from .forms import FormAlbum
 def listagem(request):
 	data = {}
 	data['albuns']= Albuns.objects.all()
-	return render(request, 'musicas/listagem.html',data)
+	cores=['primary','secondary','success','danger','warning','info','dark']
+	return render(request, 'musicas/listagem.html',data,cores)
 
 def home(request):
 	return render(request,'musicas/home.html')

@@ -1,8 +1,25 @@
+
 {% extends 'musicas/base.html' %}
 {% block content %}
-	<ul>
+<div class="row justify-content-center" id="cards">
 	{%for album in albuns %}
+		<div class="col-sm-5">
+			<div  class="card text-white text-center bg-dark mb-3" style="max-width: 18rem;" >
+				
+				<div class="alert alert-danger" role="alert">{{album}}</div>
+				
+				<div class="card-body">
+					<h5 class="card-title">{{album.num_musicas}} Songs</h5>
+					<p class="card-text">Duration: {{album.duracao}}</p>
+				</div>
+				<a href="{% url 'updA' album.id %}" class="btn btn-danger">Edit</a>	
+			</div>
+		</div>
+		
+		  <!--
 		<li><a href="{% url 'updA' album.id %}"> {{album}}</a> {{album.duracao}}</li>
+		-->
+		
 	{%endfor%}
-	</ul>
+</div>
 {% endblock %}
