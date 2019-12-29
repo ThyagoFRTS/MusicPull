@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import Albuns
+from .models import Clientes
 
 class FormAlbum(ModelForm):
     class Meta:
@@ -9,3 +10,7 @@ class FormAlbum(ModelForm):
         #('Título', 'Duração', 'Ano', 'Número de Músicas', 'Preço')
         #'__all__'
         
+class FormCliente(ModelForm):
+	class Meta:
+		model = Clientes
+		fields = '__all__'
