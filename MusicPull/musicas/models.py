@@ -33,6 +33,8 @@ class Musicas (models.Model):
 
 class Clientes (models.Model):
 	nome = models.CharField(max_length=70,verbose_name='Nome')
+	sobrenome = models.CharField(max_length=70,verbose_name='Sobrenome',default='')
+	cpf = models.CharField(max_length=14,verbose_name='Cpf',default='000.000.000-00')
 
 	class Meta:
 		verbose_name_plural='Clientes'

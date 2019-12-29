@@ -1,13 +1,17 @@
 from django.shortcuts import render,redirect
 from .models import Albuns
+from .models import Clientes
 from .forms import FormAlbum
 # Create your views here.
-
-def listagem(request):
+#---------------------------------SOBRE NÓS-------------------------------
+def about(request):
+	return render(request, 'musicas/aboutus.html')
+#---------------------------------ALBUNS----------------------------------
+def ralbum(request):
 	data = {}
 	data['albuns']= Albuns.objects.all()
 	cores=['primary','secondary','success','danger','warning','info','dark']
-	return render(request, 'musicas/listagem.html',data,cores)
+	return render(request, 'musicas/listagemA.html',data,cores)
 
 def home(request):
 	return render(request,'musicas/home.html')
@@ -35,3 +39,8 @@ def dalbum(request, pk):
 	album.delete()
 	return redirect('listagem')
 	
+#---------------------------------CLIENTES----------------------------------
+def rcliente(request):
+	data = {}
+	data['clientes']= Clientes.objects.all()
+	return render(request, 'musicas/listagemC.html',data)

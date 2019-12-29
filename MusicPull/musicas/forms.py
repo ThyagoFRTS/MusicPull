@@ -13,4 +13,5 @@ class FormAlbum(ModelForm):
 class FormCliente(ModelForm):
 	class Meta:
 		model = Clientes
+		mask = {'cpf': '000.000.000-00'}
 		fields = '__all__'
