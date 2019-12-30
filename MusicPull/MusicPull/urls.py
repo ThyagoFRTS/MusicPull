@@ -19,7 +19,7 @@ from musicas.views import ralbum,cad_album, ualbum, dalbum,home,rcliente,about
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='home'),
-    path('Ca/', cad_album),
+    path('Ca/', cad_album, name="cA"),
     path('Ra/', ralbum, name="rA"),
     path('Ua/<int:pk>',ualbum, name="updA"),
     path('Da/<int:pk>',dalbum,name="delA"),
