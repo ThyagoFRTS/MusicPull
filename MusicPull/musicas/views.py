@@ -1,20 +1,24 @@
 from django.shortcuts import render,redirect
 from .models import Albuns
 from .models import Clientes
-from .forms import FormAlbum, FormCliente
+from .models import Logins
+from .forms import FormAlbum, FormCliente, FormLogin
 # Create your views here.
+
+
 #---------------------------------SOBRE NÓS-------------------------------
 def about(request):
 	return render(request, 'musicas/aboutus.html')
+
+def home(request):
+	
+	return render(request,'musicas/home.html')
 #---------------------------------ALBUNS----------------------------------
 def ralbum(request):
 	data = {}
 	data['albuns']= Albuns.objects.all()
 	cores=['primary','secondary','success','danger','warning','info','dark']
 	return render(request, 'musicas/listagemA.html',data,cores)
-
-def home(request):
-	return render(request,'musicas/home.html')
 
 def cad_album(request):
 	form = FormAlbum(request.POST or None)#Verifica se tem coisa
@@ -47,10 +51,12 @@ def rcliente(request):
 
 def cad_cliente(request):
 	form = FormCliente(request.POST or None)#Verifica se tem coisa
+	form2 = FormLogin(request.POST or None)
 	if form.is_valid():
 		form.save()
+		
 		return redirect('/')
-	return render(request,'musicas/formCc.html',{'form':form})
+	return render(request,'musicas/formCc.html',{'form':form,'form2':form2})
 
 def ucliente(request, pk):
 	data={}
@@ -67,3 +73,20 @@ def dcliente(request, pk):
 	cliente = Clientes.objects.get(pk=pk)
 	cliente.delete()
 	return redirect('listagemC')
+
+#---------------------------------LOGIN----------------------------------
+
+def cuser(request):
+	form = FormLogin(request.POST or None)#Verifica se tem coisa
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	return render(request,'musicas/formCu.html',{'form':form})
+
+def log_in(request):
+	
+	form = FormLogin(request.POST or None)#Verifica se tem coisa
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	return render(request,'musicas/login.html',{'form':form})

@@ -18,16 +18,22 @@ from django.urls import path
 from musicas.views import ralbum,cad_album, ualbum, dalbum
 from musicas.views import home, about
 from musicas.views import cad_cliente, rcliente,ucliente, dcliente
+from musicas.views import log_in, cuser
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='home'),
     path('aboutus/',about,name="aboutus"),
+    #------LOGIN
+    path('login/',log_in,name="login"),
+    path('Cu/',cuser,name='cU'),
+    #------ALBUM
     path('Ca/', cad_album, name="cA"),
     path('Ra/', ralbum, name="rA"),
     path('Ua/<int:pk>',ualbum, name="updA"),
     path('Da/<int:pk>',dalbum,name="delA"),
+    #------CLIENTE
     path('Cc/',cad_cliente,name="cC"),
     path('Rc/',rcliente,name="rC"),
     path('Uc/<int:pk>',ucliente,name="updC"),
