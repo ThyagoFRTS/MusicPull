@@ -1,7 +1,5 @@
 {% extends 'musicas/base.html' %}
 {% load crispy_forms_tags %}
-
-
 {% block content %}
 
 <form method="POST">
@@ -9,8 +7,9 @@
         {% csrf_token %}
         {{form|crispy}}
         <button type="submit" class="btn btn-danger">Send</button>
+
         {% if album%}
-            <a href="{%url 'delA' album.id %}">Remover</a>
+            <a href="#">Remover</a>
         {% endif %}
     </div>
 </form>

@@ -15,15 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from musicas.views import ralbum,cad_album, ualbum, dalbum,home,rcliente,about
+from musicas.views import ralbum,cad_album, ualbum, dalbum
+from musicas.views import home, about
+from musicas.views import cad_cliente, rcliente
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='home'),
+    path('aboutus/',about,name="aboutus"),
     path('Ca/', cad_album, name="cA"),
     path('Ra/', ralbum, name="rA"),
     path('Ua/<int:pk>',ualbum, name="updA"),
     path('Da/<int:pk>',dalbum,name="delA"),
-    path('aboutus/',about,name="aboutus"),
+    path('Cc/',cad_cliente,name="cC"),
     path('Rc/',rcliente,name="rC"),
 
     

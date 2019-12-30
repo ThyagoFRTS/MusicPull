@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Albuns
 from .models import Clientes
-from .forms import FormAlbum
+from .forms import FormAlbum, FormCliente
 # Create your views here.
 #---------------------------------SOBRE NÓS-------------------------------
 def about(request):
@@ -44,3 +44,10 @@ def rcliente(request):
 	data = {}
 	data['clientes']= Clientes.objects.all()
 	return render(request, 'musicas/listagemC.html',data)
+
+def cad_cliente(request):
+	form = FormCliente(request.POST or None)#Verifica se tem coisa
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	return render(request,'musicas/formCc.html',{'form':form})
