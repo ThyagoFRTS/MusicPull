@@ -8,9 +8,9 @@
     <div class="form-group">
         {% csrf_token %}
         {{form|crispy}}
-        <button type="submit" class="btn btn-danger">Send</button>
+        <button type="submit" class="btn btn-primary">Send</button>
         {% if album%}
-            <a href="{%url 'delA' album.id %}">Remover</a>
+            <button  href="{%url 'delA' album.id %}" class="btn btn-danger">Remover</button>
         {% endif %}
     </div>
 </form>

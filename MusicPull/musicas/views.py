@@ -37,7 +37,7 @@ def ualbum(request, pk):
 def dalbum(request, pk):
 	album = Albuns.objects.get(pk=pk)
 	album.delete()
-	return redirect('listagem')
+	return redirect('listagemA')
 	
 #---------------------------------CLIENTES----------------------------------
 def rcliente(request):
@@ -51,3 +51,19 @@ def cad_cliente(request):
 		form.save()
 		return redirect('/')
 	return render(request,'musicas/formCc.html',{'form':form})
+
+def ucliente(request, pk):
+	data={}
+	cliente = Clientes.objects.get(pk=pk)
+	form = FormCliente(request.POST or None,instance=cliente)#Verifica se tem coisa
+	if form.is_valid():
+		form.save()
+		return redirect('/Rc')
+	data['form']=form
+	data['cliente']=cliente
+	return render(request,'musicas/formCc.html',{'form':form,'cliente':cliente})
+
+def dcliente(request, pk):
+	cliente = Clientes.objects.get(pk=pk)
+	cliente.delete()
+	return redirect('listagemC')

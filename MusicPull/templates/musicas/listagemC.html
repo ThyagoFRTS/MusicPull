@@ -11,7 +11,7 @@
 					<h5 class="card-title"> {{cliente}}</h5>
 					<p class="card-text">Sobrenome: {{cliente.sobrenome}}</p>
 				</div>
-				
+				<a href="{% url 'updC' cliente.id %}" class="btn btn-danger">Edit</a>	
 				
 			</div>
 		</div>		 

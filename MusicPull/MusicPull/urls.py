@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from musicas.views import ralbum,cad_album, ualbum, dalbum
 from musicas.views import home, about
-from musicas.views import cad_cliente, rcliente
+from musicas.views import cad_cliente, rcliente,ucliente, dcliente
 
 
 urlpatterns = [
@@ -30,6 +30,8 @@ urlpatterns = [
     path('Da/<int:pk>',dalbum,name="delA"),
     path('Cc/',cad_cliente,name="cC"),
     path('Rc/',rcliente,name="rC"),
+    path('Uc/<int:pk>',ucliente,name="updC"),
+    path('Dc/<int:pk>',dcliente,name="delC"),
 
     
 ]
