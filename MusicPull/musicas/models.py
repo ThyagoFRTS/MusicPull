@@ -44,18 +44,19 @@ class Clientes (models.Model):
 
 	def __str__(self):
 		return self.nome
-"""
+
 class Vendas (models.Model):
 	album = models.ForeignKey(Albuns, on_delete=models.CASCADE)
 	cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+	quantidade = models.IntegerField(default=0)
 	valor = models.DecimalField(max_digits=7,decimal_places=2,verbose_name='Valor')
 
 	class Meta:
 		verbose_name_plural='Vendas'
 
 	def __str__(self):
-		return self.cliente
-"""
+		return str(self.cliente)
+
 
 class Logins (models.Model):
 	username = models.CharField(max_length=40,verbose_name='Usuário',default='username')

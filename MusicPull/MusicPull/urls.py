@@ -19,12 +19,15 @@ from musicas.views import ralbum,cad_album, ualbum, dalbum
 from musicas.views import home, about
 from musicas.views import cad_cliente, rcliente,ucliente, dcliente
 from musicas.views import log_in, cuser
+from musicas.views import salbum
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home, name='home'),
     path('aboutus/',about,name="aboutus"),
+    #------CLIENTE
+    path('sell/<int:pk>',salbum,name='sA'),
     #------LOGIN
     path('login/',log_in,name="login"),
     path('Cu/',cuser,name='cU'),

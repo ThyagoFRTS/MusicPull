@@ -3,6 +3,7 @@ from django import forms
 from .models import Albuns
 from .models import Clientes
 from .models import Logins
+from .models import Vendas
 
 class FormAlbum(ModelForm):
     class Meta:
@@ -25,4 +26,8 @@ class FormCliente(ModelForm):
 		mask = {'cpf': '000.000.000-00'}
 		fields = '__all__'
 
+class FormVenda(ModelForm):
+	class Meta:
+		model = Vendas
+		fields = '__all__'
 

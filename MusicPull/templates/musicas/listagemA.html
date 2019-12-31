@@ -14,7 +14,11 @@
 					<h5 class="card-title">{{album.num_musicas}} Songs</h5>
 					<p class="card-text">Duration: {{album.duracao}}</p>
 				</div>
-				<a href="{% url 'updA' album.id %}" class="btn btn-danger">Edit</a>	
+				<div>
+					<a href="{% url 'updA' album.id %}" class="btn btn-danger">Edit</a>
+					<a href="{% url 'sA' album.id %}" class="btn btn-success">Buy</a>	
+				</div>
+					
 			</div>
 		</div>
 		

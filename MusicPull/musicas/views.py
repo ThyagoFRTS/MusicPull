@@ -2,7 +2,8 @@ from django.shortcuts import render,redirect
 from .models import Albuns
 from .models import Clientes
 from .models import Logins
-from .forms import FormAlbum, FormCliente, FormLogin
+from .models import Vendas
+from .forms import FormAlbum, FormCliente, FormLogin, FormVenda
 # Create your views here.
 
 
@@ -90,3 +91,24 @@ def log_in(request):
 		form.save()
 		return redirect('/')
 	return render(request,'musicas/login.html',{'form':form})
+
+#---------------------------------VENDA----------------------------------
+def salbum(request, pk):
+
+	form = FormVenda(request.POST or None)#Verifica se tem coisa
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	return render(request,'musicas/formCv.html',{'form2':form})
+	"""
+	data={}
+	album = Albuns.objects.get(pk=pk)
+	form = FormAlbum(request.POST or None,instance=album)#Verifica se tem coisa
+	form2 = FormVenda(request.POST or None)
+	if form.is_valid():
+		form.save()
+		return redirect('/')
+	data['form']=form
+	data['album']=album
+	return render(request,'musicas/formCv.html',{'album':album,'form2':form2})
+	"""
