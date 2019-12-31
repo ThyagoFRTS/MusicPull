@@ -112,3 +112,8 @@ def salbum(request, pk):
 	data['album']=album
 	return render(request,'musicas/formCv.html',{'album':album,'form2':form2})
 	"""
+
+def rvendas(request):
+	data = {}
+	data['vendas'] = Vendas.objects.all()
+	return render(request,'musicas/listagemV.html',data)
